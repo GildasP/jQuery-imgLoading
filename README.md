@@ -9,7 +9,7 @@ Simply trigger action when all images in container are loaded :
 ```javascript
 $('#container img').imgLoading(function(){
 	// action !
-    alert('loaded !);
+    alert('loaded !'');
 });
 ```
 
