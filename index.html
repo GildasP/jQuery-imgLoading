@@ -1,0 +1,84 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Images Loaded</title>
+
+<style type="text/css">
+body,td,th {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #FFF;
+	background-color: #000;
+}
+.content {
+	padding:20px;
+	margin: 20px;
+}
+.content img { 
+	width: 200px;
+	margin:5px;
+	float: left;
+}
+.clear { clear: both; }
+</style>
+
+<script language="javascript" src="js/jquery-1.12.1.min.js"></script>
+<script language="javascript" src="js/jquery.imgLoading-1.0.js"></script>
+<script language="javascript">
+
+
+
+$(document).ready(function(){
+
+	// juste l'event final, tout simple
+	$('#content1 img').imgLoading(function(e, data){
+		$('#content1 .debug').append(' - end '+data.loaded+'/'+data.total);
+	});
+
+	// plus complet
+	$('#content2 img').imgLoading({ 
+		start: function(e, data){
+			// start
+			$('#content2 .debug').append(' start... '+data.loaded+'/'+data.total);
+		},
+		progress: function(e, data){
+			// progress
+			$('#content2 .debug').append(' - progress '+data.loaded+'/'+data.total);
+		},
+		end: function(e, data){
+			// end
+			$('#content2 .debug').append(' - end '+data.loaded+'/'+data.total);
+			data.target.css('opacity', 0.5);
+		}
+	});
+	
+});
+</script>
+
+</head>
+
+<body>
+
+<div id="all">
+
+	<div id="content1" class="content">
+		<div class="debug">-</div>
+		<img src="images/img1.jpg" />
+		<img src="images/img2.jpg" />
+		<img src="images/img3.jpg" />
+		<div class="clear"></div>
+	</div>
+
+	<div id="content2" class="content">
+		<div class="debug">-</div>
+		<img src="images/img1.jpg" />
+		<img src="images/img2.jpg" />
+		<img src="images/img3.jpg" />
+		<div class="clear"></div>
+	</div>
+
+</div>
+
+</body>
+</html>
