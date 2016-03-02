@@ -1,8 +1,7 @@
 /*
-
-jQuery imgLoading
+jQuery imgLoading-1.0
 par Gildas P. / www.gildasp.fr
-
+https://github.com/GildasP/jQuery-imgLoading
 */
 
 (function($) {
